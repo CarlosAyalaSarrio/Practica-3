@@ -1,9 +1,12 @@
 package net.iessochoa.carlosayalasarrio.practica3
 
+import android.nfc.Tag
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import net.iessochoa.carlosayalasarrio.practica3.databinding.ActivityMainBinding
 
+private const val TAG = "practica3"
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
@@ -21,4 +24,30 @@ class MainActivity : AppCompatActivity() {
             binding.tvNumero.text=num.toString()
         }
     }
+
+    override fun onStart() {
+        super.onStart()
+        Log.i(TAG, "onStart")
+    }
+    override fun onResume() {
+        super.onResume()
+        Log.i(TAG, "onResume")
+    }
+    override fun onPause() {
+        Log.i(TAG, "onPause")
+        super.onPause()
+    }
+    override fun onStop() {
+        Log.i(TAG, "onStop")
+        super.onStop()
+    }
+    override fun onRestart() {
+        super.onRestart()
+        Log.i(TAG, "onRestart")
+    }
+    override fun onDestroy() {
+        Log.i(TAG, "onDestroy")
+        super.onDestroy()
+    }
 }
+
