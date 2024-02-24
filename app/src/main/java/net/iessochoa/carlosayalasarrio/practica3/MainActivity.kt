@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.viewModels
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import net.iessochoa.carlosayalasarrio.practica3.databinding.ActivityMainBinding
 
@@ -20,12 +21,16 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-         binding.tvNumero.text=model.contador.toString()
+        // binding.tvNumero.text=model.contador.toString()
 
+        model.getContador().observe(this, Observer<Int>{
+
+            cont->binding.tvNumero.text = cont.toString()
+        })
         binding.btSumaUno.setOnClickListener(){
 
             model.sumaUno()
-            binding.tvNumero.text=model.contador.toString()
+           // binding.tvNumero.text=model.contador.toString()
         }
     }
 
